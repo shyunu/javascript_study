@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        //js var 변수의 스코프는 function이다.
+        //var변수는 중복 변수 선언이 가능하다.
+        var a = 1;
+        if(true) {
+            var a = 2;
+        }
+
+        console.log(a);
+
+        for(var i = 1; i <= 10; i++) {
+
+        }
+        console.log(i);
+        
+        //function
+        function func1() {
+            var a = 10; //function안에서만 지역변수처럼 취급된다.3
+        }
+        console.log(a);
+
+
+    </script>
+
+</body>
+</html>

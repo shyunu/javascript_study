@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        func(1,2); //선언적 함수는 위에서 호이스팅이 가능하다
+
+
+        //선언적 함수
+        function func(a, b) {
+            console.log('func1 호출')
+            return a+b;
+        }
+
+        // var result = func(1, 2);
+        // console.log(result); //return이 없으면 undefined을 받음.
+
+        console.log('-----------------------------------------------------------------------------------------------');
+
+        //함수를 변수에 저장할 수 있다.
+        var a = func;
+        // console.log(typeof a);
+        a(1,2);
+
+        console.log('-----------------------------------------------------------------------------------------------');
+
+        //익명함수
+        // function compute() {
+
+        // }
+
+        // var x = compute;
+
+        var compute = function() {
+            console.log('익명함수 호출');
+        }
+
+        compute();
+
+    </script>
+
+</body>
+</html>

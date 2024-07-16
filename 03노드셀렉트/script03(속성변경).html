@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h3>엘리먼트의 속성을 변경</h3>
+
+    <button type="button" id="btn">체크박스 엘리먼트 확인</button>
+    <input type="checkbox" name="inter" class="ck" value="1">1
+    <input type="checkbox" name="inter" class="ck" value="2">2
+    <input type="checkbox" name="inter" class="ck" value="2">2
+    <input type="checkbox" name="inter" class="ck" value="3">3
+    <input type="checkbox" name="inter" class="ck" value="4">4
+
+    <script>
+        var btn = document.getElementById("btn");
+        //버튼의 속성을 확인
+        // console.log(btn.id); //btn
+        // console.log(btn.type); //button
+
+        btn.addEventListener('click', function() {
+            var ck = document.querySelectorAll(".ck");
+            for(var i = 0; i < ck.length; i++) {
+                ck[i].checked = true; //checked속성을 활성화
+                var v = ck[i].value; //태그의 value값을 얻는다
+                console.log(v);
+            }
+        })
+    </script>
+
+    <hr>
+    <section class="my-section">
+        <select class="my-select">
+            <option value="1">봄</option>
+            <option value="2">여름</option>
+            <option value="3">가을</option>
+            <option value="4">겨울</option>
+        </select>
+
+        <button type="button" id="my-btn">이미지 변경하기</button>
+        <img src="img/1.jpg" class="my-img" alt="프로필" width="200">
+    </section>
+    
+    <script>
+        var mySection = document.querySelector(".my-section");
+        var mySelect = document.querySelector(".my-select"); //mySection안에서 재탐색
+        var myImg = document.querySelector(".my-section .my-img")
+        
+        //버튼에 이벤트
+        var myBtn = document.querySelector("#my-btn");
+        myBtn.onclick = function() {
+            //select태그의 현재 선택된 값은 value로 얻는다
+            //img태그의 src는 src로 얻는다
+            myImg.src = 'img/'+ mySelect.value + '.jpg';
+        }
+    </script>
+
+    <hr>
+
+    <h3>이벤트 종류만 바꿔서 select태그가 change되면 img를 변경한다</h3>
+    <section class="wrap">
+        <select class="my-select">
+            <option value="1">봄</option>
+            <option value="2">여름</option>
+            <option value="3">가을</option>
+            <option value="4">겨울</option>
+        </select>
+        <img src="img/1.jpg" class="my-img" alt="프로필" width="200">
+    </section>
+
+    <script>
+         var mySelect2 = document.querySelector(".wrap .my-select");
+         var myImg2 = document.querySelector(".wrap .my-img");
+
+         mySelect2.onchange = function() {
+            myImg2.src = 'img/' + mySelect2.value + '.jpg';
+         }
+    </script>
+</body>
+</html>

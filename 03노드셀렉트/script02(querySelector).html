@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button type="button" id="btn">쿼리셀렉터</button>
+
+    <div class="box">
+        <ul>
+            <li>홍길동</li>
+            <li>이순신</li>
+            <li>홍길자</li>
+        </ul>
+    </div>
+
+    <script>
+        var btn = document.querySelector("#btn") //css선택자 : id명이니까 #붙인다
+        btn.addEventListener('click', function() {
+            //li태그를 querySelector로 얻는다
+            var li = document.querySelector(".box > ul > li"); //처음 발견되는 li 1개만 가져온다(단수형)
+            console.log(li);
+            
+            var li2 = document.querySelectorAll(".box > ul > li");
+            console.log(li2);
+            for(var i = 0; i < li2.length; i++) {
+                console.log(li2[i]); //li태그에 순차적으로 접근한다
+            }
+        })
+    
+    
+    </script>
+
+</body>
+</html>

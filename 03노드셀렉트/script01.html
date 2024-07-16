@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button type="button" id="btn">체크박스 엘리먼트 확인</button>
+    <input type="checkbox" name="inter" class="ck" value="1">1
+    <input type="checkbox" name="inter" class="ck" value="2">2
+    <input type="checkbox" name="inter" class="ck" value="2">2
+    <input type="checkbox" name="inter" class="ck" value="3">3
+    <input type="checkbox" name="inter" class="ck" value="4">4
+
+    <script>
+        var btn = document.getElementById("btn");
+        btn.onclick = function() {
+
+        //    var inter = document.getElementsByName("inter"); //name이 inter인 엘리먼트들
+        //    console.log(inter);
+        //    for(var i = 0; i < inter.length; i++) {
+        //     console.log(inter[i]);
+        //    }
+
+            var ck = document.getElementsByClassName("ck"); //class명이 ck인 엘리먼트들
+            console.log(ck);
+        }
+    </script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        //while문
+        // var i = 1;
+
+        // while(i <= 10) {
+        //     console.log(i);
+        //     i++;
+        // }
+
+        //for문
+        // for(var i = 1; i <= 10; i++) {
+        //     console.log(i);
+        // }
+
+        //for in (향상된 for문) : 변수 in 배열
+        var arr = ['a', 'b', 'c', 'd', 'e'];
+        for(var i in arr) { //인덱스를 뽑아준다 (i:인덱스)
+            console.log(i); //인덱스
+            console.log(arr[i]); //값
+        }
+
+        //탈출문 break, continue
+        var arr = [1,2,3,4,5];
+        for(var i = 0; i < arr.length; i++) {
+            
+            if(arr[i] == 3) {
+                //break;
+                continue;
+            }
+            
+            console.log(arr[i]);
+        }
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h3>태그사이에 값을 넣기 : innerHTML = 대입할 값</h3>
+
+    <h3 class="text-info">단어를 선택하세요</h3>
+    <select class="lang">
+        <option value="선택">선택</option>
+        <option value="영어">hello</option>
+        <option value="한국어">안녕하세요</option>
+        <option value="중국어">你好</option>
+    </select>
+
+    <script>
+        var info = document.querySelector(".text-info")
+        var lang = document.querySelector(".lang");
+        lang.onchange = function() {
+            info.innerHTML = lang.value + "입니다";
+        }
+    </script>
+</body>
+</html>

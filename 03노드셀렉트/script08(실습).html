@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input:focus {
+            outline: none; /*focus시 기본 보더*/
+        }
+    </style>
+</head>
+<body>
+    <!-- 아이디 4글자 미만이면 아이디4글자이상 멘트, 빨간 보더 // 아니면 초록보더
+    힌트:keyup이벤트
+    문자열길이:length 
+    -->
+    <pre>
+    아이디값이 변경되면 예시처럼 구현
+    </pre>
+
+    아이디: <input type="text" name="id">
+    <span class="idMsg"></span>
+
+    <script>
+        var idTag = document.querySelector("input[name=id]")
+        var msg = document.querySelector(".idMsg");
+
+        idTag.onkeyup = function() {
+            if(idTag.value.length < 4) {
+                idTag.style.border = "1px solid red";
+                msg.innerHTML = "아이디는 4글자 이상입니다."
+            } else {
+                idTag.style.border = "1px solid green";
+                msg.innerHTML = "";
+            }
+           
+        }
+
+
+
+
+
+    </script>
+
+</body>
+</html>

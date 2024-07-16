@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    
+    <script>
+        //데이터 타입과 연산자
+        var num1 = "10";
+        var num2 = '10';
+        var num3 = 10;
+        
+        num2 = 3.14; //변수수정:문자를 숫자로 변경(그냥 작성해도 무방하다)
+
+        console.log(num1 + num2 + num3); //문자열에 뭐가 붙던 문자열이다 : 103.1410
+        console.log(num2 + num3); //13.14 숫자
+
+        var bool = true; //boolean타입
+        var un; //undefined - 초기화를 안하면 나타난다
+        var tag = document.querySelector("ㅋㅋ"); //null - 값은 지정했지만 값이 없을 때
+
+        console.log(bool);
+        console.log(un);
+        console.log(tag);
+
+        console.log(typeof num1);
+        console.log(typeof num2);
+        console.log(typeof bool);
+        console.log(typeof un);
+        console.log(typeof tag);
+
+        console.log("------------------------------------------------------------");
+
+        var a = "10";
+        var b = 10;
+        console.log(a == b); //단순 값 비교
+        console.log(a != b); 
+        console.log(a === b);
+        console.log(a !== b);
+
+        var c; //undefined
+        var d = null; //
+        console.log(c == d); //true
+        console.log(c === d); //false
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h3>css스타일 변경하기</h3>
+    <section class="wrap">
+        <select class="my-select">
+            <option value="1">봄</option>
+            <option value="2">여름</option>
+            <option value="3">가을</option>
+            <option value="4">겨울</option>
+        </select>
+        <img src="img/1.jpg" class="my-img" alt="프로필" width="200" style="border: 3px solid #000;">
+        컬러변경<input type="color" class="my-color">
+    </section>
+
+    <script>
+         var mySelect2 = document.querySelector(".wrap .my-select");
+         var img = document.querySelector(".wrap .my-img");
+
+         mySelect2.onchange = function() {
+            img.src = 'img/' + mySelect2.value + '.jpg';
+         }
+
+         //css스타일 변경하기
+         var color = document.querySelector(".wrap .my-color");
+         color.onchange = function() { //색상이 변경되고 색상 고르는 창이 꺼지면 동작
+            //input태그의 value : color.value
+            //img.style.border = "3px solid" + color.value;
+            img.style.borderColor = color.value; //border-color -> borderColor(카멜표기법)
+        }
+
+
+    </script>
+
+
+</body>
+</html>
