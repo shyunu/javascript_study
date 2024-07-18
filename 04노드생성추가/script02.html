@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0; padding: 0; text-decoration: none;}
+    </style>
+</head>
+<body>
+    
+    <h3>엘리먼트 생성과 추가</h3>
+
+    <input type="text" class="todo" placeholder="내용을 작성하세요">
+    <button type="button" id="add">추가하기</button>
+
+    <ul class="list">
+
+    </ul>
+
+    <script>
+        var add = document.getElementById("add"); //button
+        var todo = document.querySelector(".todo"); //input
+        var list = document.querySelector(".list"); //ul
+        var count = 1; //li앞에 넣을 숫자
+
+        add.addEventListener('click', function() {
+
+            //li생성
+            var li = document.createElement("li"); //document.creatElement("태그명")
+            var a = document.createElement("a");
+            a.href = "#"; //a태그에 속성을 추가한다
+            a.innerHTML = count + ". " + todo.value; //사용자가 입력한 값을 a태그 사이에 넣는다
+            li.appendChild(a); //li의 자식으로 a를 넣는다
+            list.appendChild(li); //화면에 ul의 자식으로 li를 추가한다.
+            count++; //li숫자 카운트 증가
+            todo.value = ""; //사용자가 적은 값 초기화
+        })
+    </script>
+</body>
+</html>

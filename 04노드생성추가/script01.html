@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>innerHTML 문자열 형식으로 추가</h3>
+
+    <div id="inner1"></div>
+    <div id="inner2">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+
+    <button type="button" id="btn1">inner1에 추가</button>
+    <button type="button" id="btn2">inner2에 추가</button>
+
+    <script>
+        var innner1 = document.getElementById("inner1");
+        var btn1 = document.getElementById("btn1");
+        btn1.onclick = function() {
+            inner1.innerHTML = "<p><span>문자열로추가</span><p>";
+        }
+
+        var lis = document.querySelectorAll("#inner2 > ul > li");
+        var btn2 = document.getElementById("btn2");
+        btn2.onclick = function() {
+
+            for(var i = 0; i < lis.length; i++) {
+                lis[i].innerHTML = "<p>문자열추가</p>";
+            }
+        }
+    </script> 
+</body>
+</html>
