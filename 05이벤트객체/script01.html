@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <ul class="box">
+        <li>1.홍길동</li>
+        <li>2.이순신</li>
+        <li>3.홍길자</li>
+        <li>4.신사임당</li>
+        <li>5.강감찬</li>
+    </ul>
+
+    <p class="result"></p>
+
+    <script>
+        //li모두를 얻는다
+        var lis = document.querySelectorAll(".box > li"); //배열
+        var result = document.querySelector(".result");
+
+        //만약 태그가 x1000개라면 반복을 1000번 돌아야함 : 좋은 코드x
+        for(var i = 0; i < lis.length; i++) {
+            lis[i].onclick = function(e) {
+                //result.innerHTML = lis[i].innerHTML;
+                result.innerHTML = e.target.innerHTML;
+            }
+        }
+        console.log(i); //5
+    </script>
+
+
+
+</body>
+</html>

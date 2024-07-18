@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <ul class="box">
+        <li>1.홍길동</li>
+        <li>2.이순신</li>
+        <li>3.홍길자</li>
+        <li>4.신사임당</li>
+        <li>5.강감찬</li>
+    </ul>
+
+    <p class="result"></p>
+
+    <script>
+        //부모태그에 이벤트를 걸면 자식한테 이벤트가 상속된다.
+        var box = document.querySelector(".box"); //li의 부모 box
+        var result = document.querySelector(".result");
+
+        box.onclick = function() {
+            //console.log('이벤트 동작됨!!!'); //li, ul전부 이벤트가 걸림
+            // console.log(event); //이벤트에 대한 정보
+            // console.log(event.target); //이벤트가 동작한 태그
+            // console.log(event.currentTarget); //실제이벤트가 걸려있는 태그
+            console.dir(event.target);
+            if(event.target.tagName == "UL") return; //이벤트 동작이 UL인 경우는 종료
+            
+
+            result.innerHTML = event.target.innerHTML;
+        }
+    </script>
+
+
+
+
+</body>
+</html>

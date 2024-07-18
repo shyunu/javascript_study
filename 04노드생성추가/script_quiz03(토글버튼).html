@@ -33,10 +33,6 @@
             width: 100%;
             height: 100%;
         }
-        
-        .btn1.active {
-            .btn1.background-color: black;
-        }
     </style>
     
 </head>
@@ -67,20 +63,28 @@
 
     <script>
         var btn1 = document.getElementById("btn1");
+
+        var h2 = document.querySelector("h2");
+        var body = document.body; //body는 document.body로 바로 접근 가능
+        var p = document.querySelector("p");
+        var a = document.querySelector("a");
+
         btn1.onclick = function() {
-            console.dir(btn1.className);
-            console.dir(btn1.classList);
-
-            btn1.classList.add("active");
-            console.log(btn1.classList.contains("btn1"));
-
-            if(btn1.classList.contains("btn1")) {
-                btn1.classList.add("active");
+            if(btn1.classList.contains("active")) {
+                h2.style.color = "black";
+                body.style.backgroundColor = "white";
+                p.style.color = "black";
+                a.style.color = "black";
+                btn1.innerHTML = "어둡게보기"
             } else {
-                btn1.classList.remove("active");
+                h2.style.color = "white";
+                body.style.backgroundColor = "black";
+                p.style.color = "white";
+                a.style.color = "white";
+                btn1.innerHTML = "밝게보기"
             }
 
-            btn1.value = "밝게보기";
+            btn1.classList.toggle("active");
         }
     </script>    
 
