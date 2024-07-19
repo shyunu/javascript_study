@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h3>고유 특성을 가진 이벤트 중단</h3>
+
+    <ul class="pageNation">
+        <li><a href="getList.board">1</a></li>
+        <li><a href="getList.board">2</a></li>
+        <li><a href="getList.board">3</a></li>
+        <li><a href="getList.board">4</a></li>
+        <li><a href="getList.board">5</a></li>
+    </ul>
+
+    <script>
+        var pageNation = document.querySelector(".pageNation");
+        pageNation.onclick = function() {
+            event.preventDefault(); //a태그의 고유이벤트가 중단됨(href)(해결:event.preventDefault();)
+            if(event.target.tagName != "A") return;
+            var num = event.target.innerHTML; //태그의 사이값
+            alert(num + "번 클릭했습니다!"); //a태그, submit : alert이후에 href값으로 이동해버린다(문제점)
+        }
+    </script>
+
+    <form action="getList.board">
+        <input type="text">
+        <input type="submit" value="보내기" onclick="validationCheck()">
+    </form>
+
+    <script>
+        function validationCheck() {
+            event.preventDefault(); //submit 중단됨(action)
+            console.log(111);
+        }
+    </script>
+</body>
+</html>

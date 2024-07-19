@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h3>부트스트랩을 쓰다보면 data-★ 속성을 본적이 있다.</h3>
+
+    <ul class="nameList">
+        <li><a href="#" data-info="20" data-address="서울시"   data-user='{"id": "aaa123", "age": 20}'>홍길동</a></li>
+        <li><a href="#" data-info="30" data-address="경기도"   data-user='{"id": "bbb123", "age": 30}'>이순신</a></li>
+        <li><a href="#" data-info="25" data-address="남양주시" data-user='{"id": "ccc123", "age": 25}'>홍길자</a></li>
+        <li><a href="#" data-info="27" data-address="호평동"   data-user='{"id": "ddd123", "age": 27}'>강감찬</a></li>
+    </ul>
+
+    <script>
+        var nameList = document.querySelector(".nameList");
+        nameList.onclick = function() {
+            event.preventDefault(); //고유이벤트 중단
+            if(event.target.tagName != "A") return;
+            console.log(event.target.dataset.info); //data-info에 저장되는 값
+            console.log(event.target.dataset.address); //data-address에 저장되는 값
+            console.log(event.target.dataset.user);
+            var obj = JSON.parse(event.target.dataset.user);
+            console.log(obj);
+        }
+    </script>
+</body>
+</html>

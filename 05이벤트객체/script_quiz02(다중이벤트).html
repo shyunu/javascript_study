@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        table { border-collapse: collapse; width:500px;}
+        thead th, tbody td {
+            border: 1px solid black;
+
+        }
+    </style>
+
+</head>
+<body>
+    
+    <h2>event속성을 이용해서 다음을 구현하세요.</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>번호</th>
+                <th>제목</th>
+                <th>내용</th>
+                <th>삭제</th>
+            </tr>
+        </thead>
+        <tbody class="list">
+            <tr>
+                <td>1</td>
+                <td>안녕하세요!!</td>
+                <td>hi</td>
+                <td><button type="button">삭제</button></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>오늘은</td>
+                <td>hi</td>
+                <td><button type="button">삭제</button></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>이벤트 위임을 사용해서</td>
+                <td>hi</td>
+                <td><button type="button">삭제</button></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>삭제를 해볼겁니다.</td>
+                <td>hi</td>
+                <td><button type="button">삭제</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        //공통 조상 tbody에 이벤트를 건다
+        var list = document.querySelector(".list");
+
+        list.onclick = function() {
+            // console.dir(event.target);
+            if(event.target.tagName != "BUTTON") return;
+            if(confirm("삭제하시겠습니까?")) {
+                event.target.parentElement.parentElement.remove();
+            }
+            
+        }
+        
+    </script>
+
+</body>
+</html>
