@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form action="list.board" name="myForm">
+        이름: <input type="text" name="name" pattern>
+        분야:
+        <input type="checkbox" name="info" value="js">js
+        <input type="checkbox" name="info" value="html">html
+        <input type="checkbox" name="info" value="css">css
+
+        <input type="submit" value="보내기">
+    </form>
+
+    <script>
+        //form태그는 document의 자식으로 document.formname.inputname 으로 접근을 제공한다.
+        var btn = document.getElementById("btn");
+        btn.onclick = function() {
+            
+            event.preventDefault(); //1. submit버튼 중단
+            // console.log(document.myForm.name); //input
+            // console.log(document.myForm.info); //checkbox
+
+            var myForm = document.myForm;
+            if(myForm.name.value.length < 4) {
+                alert("이름은 4글자 이상입니다");
+                myForm.name.focus(); //input태그에 포커싱을 준다
+                return; //함수종료(★)  
+            } else {
+                var arr = myForm.info;
+                var cnt = 0;
+
+                for(var i = 0; i < arr.length; i++) {
+                    if(arr[i].checked) {
+                        cnt++;
+                    }
+                }
+
+                if(cnt == 0) {
+                    alert("적어도 하나의 분야를 선택하세요.");
+                    return;
+                }
+            }
+
+            //form submit(js)
+            myForm.submit();
+        }
+
+
+
+
+    </script>
+
+
+</body>
+</html>

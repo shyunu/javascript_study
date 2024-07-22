@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h3>최신 관심 목록</h3>
+    <div class="wishList">
+
+    </div>
+
+    <script>
+
+        var wishList = document.querySelector(".wishList");
+
+        //로컬스토리지를 가져온다
+        var arr = JSON.parse( localStorage.getItem("wishList") );
+
+        if(arr == null) { //사용자가 클릭한 내용이 없음
+            wishList.innerHTML = "최신 클릭한 정보가 없습니다";
+        } else {
+            // console.log(arr);
+
+            for(var i = 0; i < arr.length; i++) {
+                var img = document.createElement("img");
+                img.src = arr[i];
+                img.width = "300";
+                wishList.appendChild(img);
+            }
+            
+        }
+
+
+    </script>
+</body>
+</html>

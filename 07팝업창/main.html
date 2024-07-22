@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h3>메인화면.....</h3>
+    <!--
+        1. 오늘 하루 이 창 열지 않기로 창을 종료하는 경우 개발자가 식별할 수 있는 쿠키 생성
+        2. 메인창에서는 해당쿠키가 있다면 팝업을 열지 않으면 된다.
+        3. 시간은 +1로 한다.
+    -->
+    <script>
+        /* 새창열기: window.open() , 창닫기: window.close() */
+
+        window.onload = function() {
+            // window.open("http://www.naver.com"); 
+            // window.open("popup.html");
+
+            if(findCookie("mainPopup") == false) {
+                window.open("popup.html", "메인팝업창", "width=300, height=300, top=100")
+            }
+
+            
+
+        }
+        
+        //쿠키 확인하기 함수
+        function findCookie(name) {
+            var cookies = document.cookie;
+            var arr = cookies.split("; ");
+            for( var i in cookies ) {
+                if(arr[i].indexOf(name + "=") != -1) {
+                    return true; //값이 있다는 의미
+                }
+            }
+
+            return false;
+        }
+
+        
+    </script>
+</body>
+</html>

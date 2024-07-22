@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h3>localStorage와 sessionStorage는 브라우저 내에 키=값을 저장하는 저장소이다</h3>
+    <h3>localStorage : 브라우저를 종료하더라도 영구저장</h3>
+    <h3>SessionStorage : 브라우저를 종료하면 사라짐</h3>
+    <h3>JSP에서 사용하는 세션과는 전혀 무관함</h3>
+
+    <button type="button" id="createSession">세션만들기</button>
+    <button type="button" id="removeSession">세션삭제하기</button>
+
+    <script>
+        var createSession = document.getElementById("createSession");
+        
+        createSession.onclick = function() {
+            //JSP - session: setAttribute(), getAttribute(), removeAttribute()
+            
+            //값 저장
+            localStorage.setItem( "aaa", "홍길동" ); //키,값 
+            localStorage.setItem( "bbb", "20" ); 
+            localStorage.setItem( "ccc", JSON.stringify(['a', 'b', 'c']) ); 
+            
+            //값 얻기
+            var aaa =  localStorage.getItem("aaa");
+            var bbb =  localStorage.getItem("bbb");
+            var ccc =  localStorage.getItem("ccc");
+            
+            console.log(aaa);
+            console.log(bbb);
+            console.log(ccc);
+        }
+        
+        var removeSession = document.getElementById("removeSession");
+        removeSession.onclick = function() {
+            localStorage.removeItem("aaa");
+            alert("aaa 세션 삭제 완료!")
+        }
+        
+    </script>
+</body>
+</html>

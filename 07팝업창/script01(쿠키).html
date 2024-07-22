@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button type="button" id="createCookie">쿠키생성하기</button>
+
+    <script>
+        var createCookie = document.getElementById("createCookie");
+        createCookie.onclick = function() {
+            /* 시간 설정 */
+            var date = new Date();
+            date.setDate(date.getDate() + 7); //현재날짜 + 7
+            console.log(date);
+
+            /* 쿠키에 저장할 문자열 생성 */
+            var cookie = "";
+            cookie += "name=홍길동; expires=" + date.toUTCString(); //..추가옵션 + ";path=/myweb/info"
+            /* 쿠키 저장 */
+            document.cookie = cookie;
+        }
+    </script>
+
+    <button type="button" id="findCookie">쿠키값확인하기</button>
+
+    <script>
+        var findCookie = document.getElementById("findCookie");
+        findCookie.onclick = function() {
+            //쿠키얻기
+            var cookies = document.cookie;
+            var arr = cookies.split("; ");
+
+            for(var i in arr) {
+                if(cookies[i].indexOf("name=") != -1) { //내가 찾을 쿠키는 name
+                    //쿠키가 존재함 -> 쿠키의 값을 얻는다
+                    var value = cookies[i].replace("name=", "");
+                    alert("찾는 쿠키값은:" + value);
+                    return;
+
+                }
+            }
+        }
+        
+    </script>
+
+</body>
+</html>

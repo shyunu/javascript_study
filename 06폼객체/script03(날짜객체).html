@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 날짜객체 생성하기 */
+        /* 방법1 */
+        var date = new Date(); //오늘 날짜 (날짜타입)
+        console.log(date);
+
+        /* 방법2 */
+        var date2 = new Date("2024-07-22 09:40:32");
+        console.log(date2);
+
+        /* 방법3 */
+        var date3 = new Date(2024, 7, 22, 9, 40, 35);
+        console.log(date3);
+
+        /* 방법4 */
+        var time = date.getTime(); //1970.1.1 기준 , 밀리초로 나타낸다
+        console.log(time); //console: 1721609038386
+        var date4 = new Date(time);
+        console.log(date4);
+
+        console.log(("---------------------------------------------------"));
+
+        /* 날짜의 포맷형식 변환 함수 */
+        console.log( date.toUTCString() ); //시계협정시(문자열)
+        console.log( date.toLocaleTimeString() ); //국가별 지역시간
+        console.log( date.toISOString() ); //국제 표준화 기구(ISO)에서 시간을 나타내는 표준시
+    </script>
+</body>
+</html>
