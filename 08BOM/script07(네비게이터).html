@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 사용자의 현재 위치 정보를 얻는다 */
+
+        /* callback:함수를 call하면 결과를 back받기로 약속한 함수 */
+        navigator.geolocation.getCurrentPosition(function(success) {
+            // console.log(success);
+            console.log(success.coords.latitude); //위도
+            console.log(success.coords.longitude); //경도
+            //지도 데이터 같은 곳에 사용자 위치정보를 찍어줄 수 있다.
+            
+        }, function(error) {
+            console.log(error);
+        });
+    </script>
+</body>
+</html>

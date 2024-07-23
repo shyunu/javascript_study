@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        .my-img {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            } to {
+                opacity: 1;
+            }
+        }
+        .wrap-slide {
+            position: relative;
+        }
+        .wrap-slide > .stop-btn {
+            position: absolute;
+            left: 50%; bottom: 50px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #fff; width: 50px; height: 50px;
+            text-align: center; line-height: 50px; border-radius: 100%;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="wrap-slide">
+        <div class="my-slide">
+            <img src="img/slide1.jpg" class="my-img">
+        </div>
+
+        <div class="stop-btn stop" id="stop-btn">
+            멈춰!
+        </div>
+    </div>
+
+    <script>
+        var mySlide = document.querySelector(".my-slide");
+
+
+        var num = 1;
+        function changeImg() {
+            var img = document.createElement("img");
+            img.src = "img/slide" + ++num + ".jpg";
+            img.classList.add("my-img");
+
+            mySlide.appendChild(img); //1개 추가
+            mySlide.removeChild(mySlide.firstElementChild); //첫번째 자식삭제
+        
+            //적절한 시점에 초기화
+            if(num == 4) num = 1;
+        }
+
+        /* 프로그램 시작 시 동작할 기능 */
+        var stopId = (function() {
+            setInterval(changeImg, 3000);
+        }) ();
+
+        /* 일시정지 재개 */
+        var stopBtn = document.getElementById("stop-btn");
+        stopBtn.onclick = function() {
+            if(stopBtn.classList.contains("stop")) { //stop클래스가 있다면 중지
+                clearInterval(stopId);
+                stopBtn.innerHTML = "시작해!";
+            } else { //stop클래스가 없다면 재개
+                stopId = setInterval(changeImg, 3000);
+                stopBtn.innerHTML = "멈춰!";
+            }
+            
+            stopBtn.classList.toggle("stop");
+        }
+    </script>
+
+</body>
+</html>

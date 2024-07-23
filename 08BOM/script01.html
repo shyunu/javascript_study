@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button type="button" id="stopBtn">중지버튼</button>
+    <script>
+        // window.alert("window는 생략 가능하다");
+        // window.confirm("window는 생략 가능하다");
+        // var a = 10; //멤버변수도 window객체 안에 저장된다
+        // console.log(window.a);
+
+        /* 각 인터벌의 고유한 값을 반환한다*/
+        // var stopId = setInterval(timeFunc, 1000); //방법1
+
+        // function timeFunc() {
+        //     console.log(1);
+        // }
+
+        var stopId = setInterval(function() { //방법2
+
+        }, 1000);
+
+
+        var stopBtn = document.getElementById("stopBtn");
+        stopBtn.onclick = function() {
+            clearInterval(stopId); //해당 인터벌을 중지시킨다
+            clearTimeout(stopId2); //해당 타임아웃을 중지시킨다
+        }
+
+
+        /* 타임아웃 : 일정 시간 뒤에 1번 실행 */
+        var stopId2 = setTimeout(function() {
+            console.log("setTimeout 3초 후 실행됨");
+        }, 3000); //3초
+    </script>
+</body>
+</html>
