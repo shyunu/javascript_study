@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        //호출
+        func1(function(success){
+            console.log(success); //<-- func1이 실행해서 전달해준 결과값
+        });
+
+        //동기적 : 순서대로 실행됨
+        getCurrentPosition(function(success){
+            console.log(success); //<-- func1이 실행해서 전달해준 결과값
+        });
+
+        function asyncFunc(func) {
+            setTimeout(func, 5000); //5초 후 실행
+        }
+        console.log(1);
+        
+        //비동기적 : 순서대로 실행되지 않음
+        asyncFunc(function() { //비동기적:실행문먼저 완료하고 실행, 두가지 이상의 작업을 동시에 할 수 있음
+            console.log("콜백 함수 동작함");
+        })
+
+        console.log(2);
+    </script>
+</body>
+</html>

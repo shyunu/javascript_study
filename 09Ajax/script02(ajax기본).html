@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // fetch("hello.txt")
+        // .then(function(response) {
+        //     response.text().then(function(data) {
+        //         console.log(data); //console : hello world! (비동기)
+        //     })
+        // });
+
+        /* promise객체는 es6에서 새로 나온 객체이다 */
+        /*
+            Promise는 fetch의 실행결과를 반환해주는 객체이며 3가지의 상태를 나타낸다
+            1. fullfilled:성공적 수행
+            2. pending:대기중
+            3. reject:거절(실패)
+
+            이 객체 안에는 then()함수가 존재하며 then(콜백)의 형태를 가진다.
+            promise객체가 실행결과를 콜백에 넣어준다.
+            콜백은 실행 결과가 얼마나 걸릴지 모르니 call했을 때 결과를 back받을 함수
+        */
+        var promise = fetch("hello.txt") //hello.txt 보여달라고 요청하면 Promise객체 반환
+        promise.then(function(response) {
+            console.log(response);
+        })
+        // console.log(promise);
+
+        fetch("hello.txt")
+        .then(function(response){
+            console.log(response);
+        })
+    </script>
+</body>
+</html>
