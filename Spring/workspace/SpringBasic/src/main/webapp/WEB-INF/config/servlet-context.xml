@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- 핸들러 맵핑, 핸들러 어댑터, 어노테이션 활성화 -->
+	<annotation-driven />
+	
+	<!-- css,js 같은 정적파일 맵핑 - resources/ 경로로 요청이 들어오면 resources폴더로 다이렉트하게 연결 -->
+	<resources mapping="/resources/**" location="/resources/" />
+	
+	<!-- 뷰리졸버 - 컨트롤러에서 리턴되는 값을 디스패쳐서블릿이 뷰의 경로를 합성하는데 사용합니다. -->
+	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<beans:property name="prefix" value="/WEB-INF/view/" />
+		<beans:property name="suffix" value=".jsp" />
+	</beans:bean>
+
+	<!-- base-package안에 들어있는 @Controller, @Service, @Respository, @Componenet 클래스를 bean자동 생성  -->
+	<context:component-scan base-package="com.simple.basic.*" />
+
+	<!--  서비스 임플 영역을 빈으로 생성  -->
+	<!--  <beans:bean id="scoreService" class="com.simple.basic.service.score.scoreServiceImpl"></beans:bean>-->
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</beans:beans>

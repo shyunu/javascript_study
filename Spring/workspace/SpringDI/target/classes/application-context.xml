@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"  
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans  
+http://www.springframework.org/schema/beans/spring-beans.xsd"
+>
+	
+	<!-- 네임스페이스
+		xml에서 특정 라이브러리를 참조해서 선언하고 싶은 경우에 쓰는 표현
+		xmlns의 모듈에 위치를
+		beans태그로 사용한다는 의미
+	
+	 -->
+	
+	
+	<!-- 빈들은 싱글톤 형식으로 만들어지는데, prototype이라 적으면, bean을 사용할때마다 새롭게 생성됩니다. -->
+	<bean id="test" class="ex01.SpringTest" scope="prototype" />
+	
+	
+	<!-- 
+		의존성 주입 - 객체가 생성 될때, 특정 객체를 주입 
+		ref=객체타입
+		
+	-->
+	<bean id="hotel" class="ex02.constructor.Hotel">
+		<constructor-arg ref="chef"/>
+	</bean>
+		
+	<bean id="chef" class="ex02.constructor.Chef" />
+	
+	<!-- 
+		setter를 통한 주입
+	 -->
+	<bean id="ds" class="ex02.setter.MyDataSource">
+		<property name="url" value="jdbc:orcle:thin:@localhost~~" />
+		<property name="uid" value="jsp"/>
+		<property name="upw" value="jsp"/>
+	</bean> 
+	 
+	<bean id="memberDAO" class="ex02.setter.MemberDAO">
+		<property name="myDataSource" ref="ds"/>
+	</bean> 
+	 
+	 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+</beans>
